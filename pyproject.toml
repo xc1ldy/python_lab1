@@ -1,8 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name = "labs"
+name = "toolkit"
 version = "0.1.0"
-description = "Add your description here"
+description = "Консольный калькулятор и конвертер величин."
 requires-python = ">=3.12"
 dependencies = [
+    "typer",
     "pytest>=8.4.2",
 ]
+
+[tool.setuptools.packages.find]
+where = ["src"]
