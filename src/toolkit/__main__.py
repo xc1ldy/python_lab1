@@ -7,7 +7,7 @@ from toolkit.errors import InvalidNumberError, ToolkitError
 app = typer.Typer(help="Консольный калькулятор и конвертер величин.")
 
 
-@app.command()
+@app.command(context_settings={'ignore_unknown_options': True})
 def calc(expression: str) -> None:
     """Вычислить выражение."""
     try:
@@ -18,8 +18,9 @@ def calc(expression: str) -> None:
     typer.echo(result)
 
 
-@app.command()
-def convert(value: str, from_unit: str = typer.Option(..., "--from"), to_unit: str = typer.Option(..., "--to")) -> None:
+@app.command(context_settings={'ignore_unknown_options': True})
+def convert(value: str, from_unit: str = typer.Option(..., "--from"),
+            to_unit: str = typer.Option(..., "--to")) -> None:
     """Сконвертировать величину между единицами."""
     try:
         try:

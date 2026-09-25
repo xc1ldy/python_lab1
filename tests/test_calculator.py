@@ -43,6 +43,7 @@ def test_consecutive_operator_error() -> None:
     with pytest.raises(ConsecutiveOperatorError):
         calculate("2 * / 3")
 
+
 def test_division_by_zero() -> None:
     with pytest.raises(DivisionByZeroError):
         calculate("5 / 0")

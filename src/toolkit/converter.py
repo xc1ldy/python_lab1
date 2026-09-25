@@ -1,26 +1,10 @@
+from toolkit.constants import _ABSOLUTE_ZERO, _LENGTH_TO_METERS, _MASS_TO_GRAMS
 from toolkit.errors import (
     BelowAbsoluteZeroError,
     IncompatibleUnitsError,
     UnknownUnitError,
 )
 
-_LENGTH_TO_METERS = {
-    "mm": 0.001,
-    "cm": 0.01,
-    "m": 1.0,
-    "km": 1000.0,
-}
-
-_MASS_TO_GRAMS = {
-    "g": 1.0,
-    "kg": 1000.0,
-}
-
-_ABSOLUTE_ZERO = {
-    "c": -273.15,
-    "k": 0.0,
-    "f": -459.67
-}
 
 def _unit_group(unit: str) -> str:
     if unit in _LENGTH_TO_METERS:
@@ -65,8 +49,8 @@ def convert(value: float, from_unit: str, to_unit: str) -> float:
 
     if from_group == "length":
         meters = value * _LENGTH_TO_METERS[from_unit]
-        return meters / _LENGTH_TO_METERS[to_unit]
+        return float(meters / _LENGTH_TO_METERS[to_unit])
 
     else:
         grams = value * _MASS_TO_GRAMS[from_unit]
-        return grams / _MASS_TO_GRAMS[to_unit]
+        return float(grams / _MASS_TO_GRAMS[to_unit])

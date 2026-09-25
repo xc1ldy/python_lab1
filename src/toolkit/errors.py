@@ -21,6 +21,7 @@ class ConsecutiveOperatorError(ToolkitError):
 class DivisionByZeroError(ToolkitError):
     """Деление на ноль."""
 
+
 class UnknownUnitError(ToolkitError):
     """Единица не найдена ни в одной группе."""
 
@@ -32,5 +33,14 @@ class IncompatibleUnitsError(ToolkitError):
 class BelowAbsoluteZeroError(ToolkitError):
     """Температура ниже абсолютного нуля."""
 
+
 class InvalidNumberError(ToolkitError):
     """Числовая ошибка ввода."""
+
+
+class UnbalancedParenthesesError(ToolkitError):
+    """Незакрытая или лишняя закрывающая скобка."""
+
+
+class ShortStackError(ToolkitError):
+    """Недостаточный стек."""
